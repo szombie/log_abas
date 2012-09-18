@@ -1,0 +1,14 @@
+<div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav affix">
+          <% if current_user.has_role? :admin %>
+          <li class="<%= active_menu('members') %>"><%= lateral_menu("Socios Comerciales", members_path)%>
+         </li>
+         <li class="<%= active_menu('clients') %>"><%= lateral_menu("Clientes", clients_path)%>
+         </li>
+         <li class="<%= active_menu('products')%>"><%=  lateral_menu("Productos", products_path)%>
+         </li>
+         <li class="<%= active_menu('invoices')%>"><%=  lateral_menu("Facturas", invoices_path)%>
+         </li>
+          <% end %>
+        </ul>
+      </div>

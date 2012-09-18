@@ -1,0 +1,17 @@
+ <li class="dropdown">
+ 	 <% if current_user.has_role? :admin %>
+ 	<%= lateral_menu("Socios Comerciales", "#", "drop1")%>
+    <ul class="dropdown-menu">
+     <li><%= drop_menu("Listado de Socios", members_path) %></li>
+     <li><%= drop_menu("Agregar Socio Comercial", new_member_path) %></li>	 
+    </ul>
+ </li>
+ <li class="dropdown">
+    <%= lateral_menu("Clientes", "#","drop2")%>
+    <ul class="dropdown-menu">
+     <li><%= drop_menu("Listado de Clientes", clients_path) %></li>
+     <li><%= drop_menu("Agregar Cliente", new_client_path) %></li>	 
+    </ul>
+ </li>
+    <% end %>
+</li>

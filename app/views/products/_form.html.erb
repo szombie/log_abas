@@ -1,0 +1,17 @@
+<%= simple_form_for(@product) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :member , :label_method => :name_member, :prompt => "Selecciona un Producto"  %>
+    <%= f.input :product_name %>
+    <%= f.input :key %>
+    <%= f.input :description %>
+    <%= f.input :precio %>
+    <%= f.input :peso %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

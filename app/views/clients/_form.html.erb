@@ -1,0 +1,19 @@
+<%= simple_form_for(@client) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name_client %>
+    <%= f.input :status %>
+    <%= f.input :address %>
+    <%= f.input :rfc %>
+    <%= f.input :social_rease %>
+    <%= f.input :fiscal_address %>
+    <%= f.input :phone %>
+    <%= f.input :email %>
+    <%= f.input :zone %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

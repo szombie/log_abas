@@ -1,0 +1,13 @@
+<%= simple_form_for(@customer) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :client , :label_method => :name_client , :prompt => "Selecciona un Cliente" %>
+    <%= f.association :member , :label_method => :name_member , :prompt => "Selecciona un Socio Comercial" %>
+    <%= f.input :client_code %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
