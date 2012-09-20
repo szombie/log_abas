@@ -1,7 +1,7 @@
 class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
-  def index
+  def index 
     @clients = Client.all
 
     respond_to do |format|
@@ -13,7 +13,7 @@ class ClientsController < ApplicationController
   # GET /clients/1
   # GET /clients/1.json
   def show
-    @client = Client.find(params[:id])
+    @client = get_client(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +34,7 @@ class ClientsController < ApplicationController
 
   # GET /clients/1/edit
   def edit
-    @client = Client.find(params[:id])
+    @client = get_client(params[:id])
   end
 
   # POST /clients
@@ -56,7 +56,7 @@ class ClientsController < ApplicationController
   # PUT /clients/1
   # PUT /clients/1.json
   def update
-    @client = Client.find(params[:id])
+    @client = get_client(params[:id])
 
     respond_to do |format|
       if @client.update_attributes(params[:client])
@@ -72,7 +72,7 @@ class ClientsController < ApplicationController
   # DELETE /clients/1
   # DELETE /clients/1.json
   def destroy
-    @client = Client.find(params[:id])
+    @client = get_client(params[:id])
     @client.destroy
 
     respond_to do |format|
@@ -80,4 +80,11 @@ class ClientsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+private 
+
+def get_client(client_id)
+   Client.find(client_id)
+end
+
 end

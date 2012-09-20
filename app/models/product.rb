@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :key, :peso, :precio, :product_name , :member_id
+  attr_accessible :description, :key, :peso, :precio, :product_name , :member_id	  
   validates :description,:key, :precio, :product_name,
   :presence => true
   belongs_to :member
