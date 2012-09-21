@@ -3,7 +3,7 @@ class MembersController < ApplicationController
   # GET /members.json
   def index
     @members = Member.all
-    @titulo = "Socios Comericales"
+    @titulo = "Socios Comerciales"
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @members }

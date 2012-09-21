@@ -1,10 +1,11 @@
+<div id = "members">
 <h1><%= @titulo %></h1>
 
 <table class="table table-striped">
   <tr>
-    <th>Socio Comercial</th>
-    <th>Razon Social</th>
-    <th>Direccion</th>
+    <th class="medium">Socio Comercial</th>
+    <th class="medium">Razon Social</th>
+    <th class ="medium">Direccion</th>
     <th>RFC</th>
     <th>Clave Comercial</th>
     <th>Telefono</th>
@@ -16,16 +17,16 @@
 
 <% @members.each do |member| %>
   <tr>
-    <td><%= member.name_member %></td>
-    <td><%= member.social_reason %></td>
-    <td><%= member.address %></td>
+    <td class ="medium"><%= member.name_member.truncate(30) %></td>
+    <td class ="medium"><%= member.social_reason.truncate(30) %></td>
+    <td class ="medium"><%= member.address.truncate(30) %></td>
     <td><%= member.rfc %></td>
     <td><%= member.comercial_key %></td>
     <td><%= member.phone %></td>
-    <td><%= member.email %></td>
-    <td><%= link_to 'Mostrar', member, class: "btn" %></td>
-    <td><%= link_to 'Editar', edit_member_path(member),class: "btn" %></td>
-    <td><%= link_to 'Eliminar', member,class: "btn btn-danger", method: :delete, data: { confirm: '¿Estas Seguro' } %></td>
+    <td><%= member.email.truncate(20) %></td>
+    <td><%= link_to 'Ver', member, class: "btn btn-mini" %></td>
+    <td><%= link_to 'Editar', edit_member_path(member),class: "btn btn-mini" %></td>
+    <td><%= link_to 'Eliminar', member,class: "btn btn-mini btn-danger", method: :delete, data: { confirm: '¿Estas Seguro' } %></td>
   </tr>
 <% end %>
 </table>
@@ -33,3 +34,4 @@
 <br />
 
 <%= link_to 'Nuevo Socio Comercial', new_member_path , class: "btn btn-primary" %>
+</div>
