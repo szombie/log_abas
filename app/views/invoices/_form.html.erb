@@ -2,11 +2,15 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :member,:label_method => :comercial_key  %>
-    <%= f.association :client, :collection => Customer.all(:order => 'client_code') , :label_method => :client_code ,:label_method => :name_client %>
-    <%= f.input :folio %>
-    <%= f.association :products, :collection => Product.all(:order => 'key'),:label_method => :key, input_html: { multiple: true }    %>
+     <%= f.input :folio %>
+    <%= f.association :member,:label_method => lambda { |member| "#{member.name_member} | #{member.comercial_key}" }  %>
+    <%= f.association :client, :collection => Customer.all(:order => 'client_code') , :label_method =>  lambda { |customer| "#{customer.client_code}" } %>
+    <%= f.simple_fields_for :products_invoice do |p| %>
+      <%= p.input :product_id, :collection => Product.all(:order => 'key'),:label_method =>  lambda { |product| "#{product.key} | #{product.product_name}" }    %>
+      <%= p.input :count  %> 
 
+        <% end %>
+    
   </div>
 
   <div class="form-actions">
