@@ -1,0 +1,6 @@
+	<fieldset>
+	<%= f.input :product_id, :collection => Product.all(:order => 'key'),:label_method =>  lambda { |product| "#{product.key} | #{product.product_name}" }    %>
+      <%= f.input :count  %>
+      <%= f.hidden_field :_destroy %>
+      <%= link_to "Quitar Producto" , "#", class: "remove_fields" %>
+     </fieldset>
