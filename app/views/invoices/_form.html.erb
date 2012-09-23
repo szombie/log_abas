@@ -1,17 +1,15 @@
-<%= simple_form_for(@invoice) do |f| %>
+<%= simple_form_for (@invoice) do |f| %>
   <%= f.error_notification %>
-
+ <fieldset>
   <div class="form-inputs">
      <%= f.input :folio %>
     <%= f.association :member,:label_method => lambda { |member| "#{member.name_member} | #{member.comercial_key}" }  %>
     <%= f.association :client, :collection => Customer.all(:order => 'client_code') , :label_method =>  lambda { |customer| "#{customer.client_code}" } %>
-    <%= f.simple_fields_for :products_invoice do |p| %>
-      <%= p.input :product_id, :collection => Product.all(:order => 'key'),:label_method =>  lambda { |product| "#{product.key} | #{product.product_name}" }    %>
-      <%= p.input :count  %> 
-
+    <%= f.nested_fields_for :products_invoice do |p| %>
+      <%= render :partial => 'products_invoice_fields' , :locals => {:f => p} %>
         <% end %>
-    
-  </div>
+     <%= link_to_add_fields "Agregar Producto", f, :products_invoice %>
+ </fieldset>
 
   <div class="form-actions">
     <%= f.button :submit %>
