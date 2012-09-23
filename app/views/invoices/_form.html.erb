@@ -4,7 +4,7 @@
   <div class="form-inputs">
      <%= f.input :folio %>
     <%= f.association :member,:label_method => lambda { |member| "#{member.name_member} | #{member.comercial_key}" }  %>
-    <%= f.association :client, :collection => Customer.all(:order => 'client_code') , :label_method =>  lambda { |customer| "#{customer.client_code}" } %>
+    <%= f.association :client, :collection => Customer.all(:order => 'client_code') , :label_method =>  lambda { |customer | "#{customer.client_code}" } , :value_method => :client_id %>
     <%= f.nested_fields_for :products_invoice do |p| %>
       <%= render :partial => 'products_invoice_fields' , :locals => {:f => p} %>
         <% end %>
