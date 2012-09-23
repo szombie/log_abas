@@ -1,1 +1,26 @@
 <h1>Listado de Usuarios</h1>
+<table class="table table-striped">
+  <tr>
+    <th>Email</th>
+    <th>Rol</th>
+    <th>Creado en</th>
+    <th>Ultimo Ingreso</th>
+    <th>Numero de Ingresos</th>
+    <th></th>
+    </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.email %></td>
+    <td><%= user.roles.first.name %></td>
+	<td><%= user.created_at %></td>
+	<td><%= user.last_sign_in_at %></td>
+	<td><%= user.sign_in_count %></td>
+    <td><%= link_to 'Destroy',user_user_path(user), method: :delete, data: { confirm: '¿Estas Seguro?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Usuario', new_user_user_path %>
