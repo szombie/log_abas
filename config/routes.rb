@@ -1,15 +1,16 @@
 AbastosLogicos::Application.routes.draw do
-  resources :invoices
-  devise_for :users
+  devise_for :users 
+  resources :users
   resources :products
   resources :customers
   resources :clients
   resources :members
+  resources :invoices
   root :to =>redirect("/users/sign_in")
-  namespace :user do
+  namespace :user  do
   root :to => "menu#index"
-  match "socio" => "members#index"
-  end
+  resources :users , :controller => 'user'  
+ end
 
 
   # The priority is based upon order of creation:

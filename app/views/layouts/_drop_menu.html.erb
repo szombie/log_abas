@@ -28,5 +28,11 @@
      <li><%= drop_menu("Agregar Factura", new_invoice_path) %></li>   
     </ul>
  </li>
- 
+ <li class="dropdown">
+    <%= lateral_menu("Usuarios", "#","drop5")%>
+    <ul class="dropdown-menu">
+      <li><%= drop_menu("Listado de Usuarios",  user_users_path) %></li>   
+     <li><%= drop_menu("Agregar Usuario",  new_user_user_path) %></li>   
+    </ul>
+ </li>
     <% end %>

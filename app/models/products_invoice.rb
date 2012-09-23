@@ -7,21 +7,27 @@ class ProductsInvoice < ActiveRecord::Base
 
   before_save :calculates_subtotal
   after_save :calculate_total
-
-  def calculates_subtotal
+#Saca el subtotal de cada precio
+  def calculates_subtotal 
   	precio = Product.find(self.product_id).precio
   	self.subtotal = precio * self.count	
   end
   
-
-   def calculate_total
+#Calcula el total de toda la factura ademas de sacar el Iva y sumarselo al total final
+   def calculate_total 
      prices = ProductsInvoice.find_all_by_invoice_id(self.invoice_id)
-     total=0
+     total = 0 
+     iva = 0
+     totalfinal = 0
     prices.each do |price|
       total += price.subtotal
     end
+    iva = total * 0.11
+    totalfinal = iva + total
     fac = Invoice.find(self.invoice_id)
-    fac.update_attribute(:total , total)
+    fac.update_attributes(total: total , iva:  iva , totalfinal: totalfinal )
+
+
   end
 
   
