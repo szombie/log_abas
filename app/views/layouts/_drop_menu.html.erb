@@ -36,3 +36,28 @@
     </ul>
  </li>
     <% end %>
+
+<!--Este es el menu de  facturista -->
+     <% if current_user.has_role? :facturista %>
+ <li class="dropdown">
+    <%= lateral_menu("Clientes", "#","drop2")%>
+    <ul class="dropdown-menu">
+     <li><%= drop_menu("Listado de Clientes", clients_path) %></li>
+     <li><%= drop_menu("Agregar Cliente", new_client_path) %></li>   
+    </ul>
+ </li>
+ <li class="dropdown">
+    <%= lateral_menu("Productos", "#","drop3")%>
+    <ul class="dropdown-menu">
+     <li><%= drop_menu("Listado de Productos", products_path) %></li>
+     <li><%= drop_menu("Agregar Productos", new_product_path) %></li>   
+    </ul>
+ </li>
+ <li class="dropdown">
+    <%= lateral_menu("Facturas", "#","drop4")%>
+    <ul class="dropdown-menu">
+     <li><%= drop_menu("Listado de Facturas", invoices_path) %></li>
+     <li><%= drop_menu("Agregar Factura", new_invoice_path) %></li>   
+    </ul>
+ </li>
+    <% end %>
