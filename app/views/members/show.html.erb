@@ -1,40 +1,48 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Socios Comerciales:</b>
-  <%= @member.name_member %>
+  <h1><%= @member.name_member %></h1>
+  
 </p>
 
-<p>
-  <b>Razón Social:</b>
-  <%= @member.social_reason %>
-</p>
+<table class="table table-bordered table-striped">
+  <colgorup>
+    <col class="span1">
+    <col class="span7">
+  </colgroup>
+    <thead>
+      <tr>
+        <th>Datos</th>
+        <th>Descripción</th>
+      </tr> 
+    </thead>
 
-<p>
-  <b>Dirección:</b>
-  <%= @member.address %>
-</p>
-
-<p>
-  <b>RFC:</b>
-  <%= @member.rfc %>
-</p>
-
-<p>
-  <b>Clave Comercial:</b>
-  <%= @member.comercial_key %>
-</p>
-
-<p>
-  <b>Teléfono:</b>
-  <%= @member.phone %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @member.email %>
-</p>
-
-
-<%= link_to 'Editar', edit_member_path(@member) %> |
-<%= link_to 'Regresar', members_path %>
+  <tbody>
+    <tr>
+      <th>Razon social</th>
+    <td><%= @member.social_reason %></td>
+  </tr>
+  <tr>
+    <th>Dirección</th>
+    <td><%= @member.address %></td>
+    </tr>
+    <tr>
+      <th>RFC</th>
+    <td><%= @member.rfc %></td>
+  </tr>
+  <tr>
+      <th>Clave comercial</th>
+    <td><%= @member.comercial_key %></td>
+  </tr>
+  <tr>
+      <th>Teléfono</th>
+    <td><%= @member.phone %></td>
+  </tr>
+  <tr>
+      <th>Email</th>
+    <td><%= @member.email %></td>
+  </tr>
+  <tbody>
+  </table>
+  <%= link_to 'Editar', edit_member_path(@member) , class: "btn" %> 
+<%= link_to 'Regresar', members_path, class: "btn" %>

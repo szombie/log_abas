@@ -2,14 +2,11 @@
 
 <table class="table table-striped">
   <tr >
-    <th>Product name</th>
-    <th>Key</th>
-    <th>Description</th>
-    <th>Precio</th>
-    <th>Peso</th>
+    <th>Nombre</th>
+    <th>Clave comercial</th>
+    <th>Descripción</th>
     <th></th>
-    <th></th>
-    <th></th>
+    
   </tr>
 
 <% @products.each do |product| %>
@@ -17,15 +14,13 @@
     <td><%= product.product_name %></td>
     <td><%= product.key %></td>
     <td><%= product.description %></td>
-    <td><%= product.precio %></td>
-    <td><%= product.peso %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Ver', product, class: "btn btn-mini" %>
+    <%= link_to 'Editar', edit_product_path(product),class: "btn btn-mini btn-primary" %>
+    <%= link_to 'Eliminar', product, class: "btn btn-danger btn-mini", method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'Nuevo producto', new_product_path, class: "btn btn-primary" %>

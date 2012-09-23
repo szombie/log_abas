@@ -1,30 +1,32 @@
 <p id="notice"><%= notice %></p>
-
 <p>
-  <b>Product name:</b>
-  <%= @product.product_name %>
+  <h1><%= @product.product_name %></h1>
 </p>
 
-<p>
-  <b>Key:</b>
-  <%= @product.key %>
-</p>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Datos</th>
+      <th>Descripción</th>
+    </tr>
+    <tr>
+  </thead>
+      <tbody>
+        <tr>
+         <th>Clave comercial</th>
+         <td><%= @product.key %></td>
+        </tr>
+        <tr>
+          <th>Precio</th>
+          <td><%= @product.precio %></td>
+        </tr>
+        <tr>
+          <th>Peso</th>
+          <td><%= @product.peso %></td>
+        </tr>
+      </tbody>
+    </table>
+  
 
-<p>
-  <b>Description:</b>
-  <%= @product.description %>
-</p>
-
-<p>
-  <b>Precio:</b>
-  <%= @product.precio %>
-</p>
-
-<p>
-  <b>Peso:</b>
-  <%= @product.peso %>
-</p>
-
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Editar', edit_product_path(@product) , class: "btn" %> 
+<%= link_to 'regresar', products_path, class: "btn" %>

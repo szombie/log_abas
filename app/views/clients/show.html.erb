@@ -1,50 +1,54 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name client:</b>
-  <%= @client.name_client %>
+<p> 
+  <h1><%= @client.name_client %></h1> 
 </p>
 
-<p>
-  <b>Status:</b>
-  <%= @client.status %>
-</p>
+<table class="table table-bordered table-striped">
+<colgorup>
+    <col class="span1">
+    <col class="span7">
+  </colgroup>
+    <thead>
+      <tr>
+        <th>Datos</th>
+        <th>Descripción</th>
+      </tr> 
+    </thead>
 
-<p>
-  <b>Address:</b>
-  <%= @client.address %>
-</p>
+  <tbody>
+    <tr>
+      <th>status</th>
+    <td><%= @client.status %></td>
+  </tr>
+  <tr>
+    <th>Dirección</th>
+    <td><%= @client.address %></td>
+    </tr>
+    <tr>
+      <th>RFC</th>
+    <td><%= @client.rfc %></td>
+  </tr>
+  <tr>
+      <th>Razón social</th>
+    <td><%= @client.social_rease %></td>
+  </tr>
+  <tr>
+    <th>Dirección fiscal</th>
+    <td><%= @client.fiscal_address %></td>
+  <tr>
+      <th>Teléfono</th>
+    <td><%= @client.phone %></td>
+  </tr>
+  <tr>
+      <th>Email</th>
+    <td><%= @client.email %></td>
+  </tr>
+  <tr>
+    <th>Zona</th>
+    <td><%= @client.zone %></td>
+  </tr>
+  <tbody>
+  </table>
 
-<p>
-  <b>Rfc:</b>
-  <%= @client.rfc %>
-</p>
-
-<p>
-  <b>Social rease:</b>
-  <%= @client.social_rease %>
-</p>
-
-<p>
-  <b>Fiscal address:</b>
-  <%= @client.fiscal_address %>
-</p>
-
-<p>
-  <b>Phone:</b>
-  <%= @client.phone %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @client.email %>
-</p>
-
-<p>
-  <b>Zone:</b>
-  <%= @client.zone %>
-</p>
-
-
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+<%= link_to 'Editar', edit_client_path(@client) , class: "btn" %> 
+<%= link_to 'Regresar', clients_path , class: "btn"%>

@@ -3,30 +3,22 @@
 
 <table class="table table-striped">
   <tr>
-    <th class="medium">Socio Comercial</th>
-    <th class="medium">Razon Social</th>
-    <th class ="medium">Direccion</th>
+    <th>Socio Comercial</th>
+    <th>Razon Social</th>
     <th>RFC</th>
-    <th>Clave Comercial</th>
-    <th>Telefono</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th class="medium"></th>
+    
   </tr>
 
 <% @members.each do |member| %>
   <tr>
     <td class ="medium"><%= member.name_member.truncate(30) %></td>
     <td class ="medium"><%= member.social_reason.truncate(30) %></td>
-    <td class ="medium"><%= member.address.truncate(30) %></td>
     <td><%= member.rfc %></td>
-    <td><%= member.comercial_key %></td>
-    <td><%= member.phone %></td>
-    <td><%= member.email.truncate(20) %></td>
-    <td><%= link_to 'Ver', member, class: "btn btn-mini" %></td>
-    <td><%= link_to 'Editar', edit_member_path(member),class: "btn btn-mini" %></td>
-    <td><%= link_to 'Eliminar', member,class: "btn btn-mini btn-danger", method: :delete, data: { confirm: '¿Estas Seguro' } %></td>
+    <td class ="medium"><%= link_to 'Ver', member, class: "btn btn-mini" %>
+    <%= link_to 'Editar', edit_member_path(member),class: "btn btn-primary btn-mini" %>
+    <%= link_to 'Eliminar', member,class: "btn btn-mini btn-danger", method: :delete, data: { confirm: '¿Estas Seguro' } %>
+</td>
   </tr>
 <% end %>
 </table>

@@ -1,8 +1,8 @@
-<%= simple_form_for(@product) do |f| %>
+<%= simple_form_for @product, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :member , :label_method => :name_member, :prompt => "Selecciona un Producto"  %>
+    <%= f.association :member , :label_method => :name_member, :prompt => "Selecciona un Socio comercial"  %>
     <%= f.input :product_name %>
     <%= f.input :key %>
     <%= f.input :description %>

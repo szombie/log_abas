@@ -220,9 +220,30 @@ es:
         one: 'Video'
         many: 'Videos'
     attributes:
-      video:
-        url: 'Enlace del video'
-        descripcion: 'Descripción'
+      member:
+        name_member: 'Nombre'
+        social_reason: 'Razón social'
+        address: "Dirección"
+        rfc: "RFC"
+        comercial_key: "Clave comercial"
+        phone: "teléfono"
+        email: "Email"
+      client:
+        name_client: "Nombre"
+        address: "Dirección"
+        rfc: "RFC"
+        social_rease: "Razón social"
+        fiscal_address: "Dirección fiscal"
+        phone: "Teléfono"
+        email: "Email"
+        zone: "Zona"
+      product:
+        member: "Socio comercial"
+        product_name: "Nombre del producto"
+        key: "Clave comercial"
+        description: "Descripción"
+        precio: "precio"
+        peso: "Peso"
       lease:
         num_int: 'Número interior'
         status_renta: 'En renta'
