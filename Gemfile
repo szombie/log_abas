@@ -11,7 +11,7 @@ gem 'country_select'
 gem 'devise'
 gem 'cancan'
 gem 'rolify'
-gem 'awesome_nested_fields'
+gem 'awesome_nested_fields'	
 
 
 # Gems used only for assets and not required
@@ -22,9 +22,7 @@ group :assets do
   gem 'bootstrap-sass'
   gem 'bootswatch-rails'
   gem 'chosen-rails'
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
+  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
   gem 'uglifier', '>= 1.0.3'
   gem 'bootstrap-datepicker-rails'
 

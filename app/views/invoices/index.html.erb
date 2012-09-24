@@ -1,7 +1,8 @@
 <h1>Listado de Facturas</h1>
 
-<table class="table table-striped">
-  <tr>
+<table class="table table-striped" id="facturas">
+  <thead> 
+   <tr>
     
     <th>Folio</th>
     <th>Fecha</th>
@@ -12,6 +13,8 @@
     <th></th>
 
   </tr>
+  </thead>
+<tbody>
 
 <% @invoices.each do |invoice| %>
   <tr>
@@ -27,6 +30,7 @@
     
   </tr>
 <% end %>
+</tbody>
 </table>
 
 <br />

@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/rweng/jquery-datatables-rails.git
+  revision: be3586b729e778a4b822e07494683387646b2b4b
+  specs:
+    jquery-datatables-rails (1.11.1)
+      jquery-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -137,6 +144,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   country_select
   devise
+  jquery-datatables-rails!
   jquery-rails
   pg
   rails (= 3.2.8)
