@@ -1,7 +1,7 @@
 <%= simple_form_for @invoice, :html => { :class => 'well form-horizontal' } do |f| %>
   <%= f.error_notification %>
  <fieldset>
-  <div class="form-inputs">
+  <div class="form-inputs invoice">
      <%= f.input :folio , :input_html => { :class => "input-mini" } %>
     <%= f.association :member,:label_method => lambda { |member| "#{member.name_member} | #{member.comercial_key}" }  %>
     <%= f.association :client, :collection => Customer.all(:order => 'client_code') , :label_method =>  lambda { |customer| "#{customer.client_code}" }, :value_method => :client_id   %>
