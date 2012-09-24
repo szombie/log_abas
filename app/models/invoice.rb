@@ -1,5 +1,5 @@
 class Invoice < ActiveRecord::Base
-  attr_accessible :iva, :totalfinal, :folio, :status, :total ,:client_id, :member_id, :products_invoice_attributes   
+  attr_accessible :iva, :totalfinal, :folio, :status, :total ,:client_id, :member_id, :fecha ,  :products_invoice_attributes   
   belongs_to :member
   belongs_to :client
   has_many :products_invoice
