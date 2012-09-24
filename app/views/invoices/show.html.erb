@@ -36,8 +36,8 @@
   </thead>
   <% @invoice.products.each_with_index do |product, i| %>
   <tr>
-    <th><%= @cantidades[i] %></th>
-    <th><%= product.product_name %></th>
+    <td><%= @cantidades[i] %></td>
+    <td><%= product.product_name %></td>
     <td>$<%= @subtotals[i] %><td>
   </tr>
     <%end%>
