@@ -244,6 +244,10 @@ es:
         description: "Descripción"
         precio: "precio"
         peso: "Peso"
+      customer:
+        client: "Cliente"
+        member: "Socio comercial"
+        client_code: "codigo de cliente"
       lease:
         num_int: 'Número interior'
         status_renta: 'En renta'
