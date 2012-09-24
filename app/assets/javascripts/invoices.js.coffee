@@ -18,4 +18,5 @@ jQuery ->
   $('#invoice_client_id').chosen()
   $('#invoice_product_ids').chosen()
   $('.controls select').chosen()
+
   
