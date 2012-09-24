@@ -1,5 +1,32 @@
 <p id="notice"><%= notice %></p>
 
+<table class="table table-bordered table-striped">
+  <colgorup>
+    <col class="span1">
+    <col class="span7">
+  </colgroup>
+    <thead>
+      <tr>
+        <th>Datos</th>
+        <th>Descripción</th>
+      </tr> 
+    </thead>
+
+  <tbody>
+    <tr>
+      <th>Cliente</th>
+    <td><%= @customer.client_id %></td>
+  </tr>
+  <tr>
+
+    </tr>
+    <tr>
+      <th>Código de cliente</th>
+    <td><%= @customer.client_code %></td>
+  </tr>
+ 
+  <tbody>
+  </table>
 <p>
   <b>Client:</b>
   <%= @customer.client_id %>
