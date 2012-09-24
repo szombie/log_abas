@@ -3,9 +3,10 @@
  <fieldset>
   <div class="form-inputs invoice">
      <%= f.input :folio , :input_html => { :class => "input-mini" } %>
-    <%= f.association :member,:label_method => lambda { |member| "#{member.name_member} | #{member.comercial_key}" }  %>
+    <%= f.association :member,:label_method => lambda { |member| "#{member.name_member} | #{member.comercial_key}" },
+    :prompt => "Selecciona un Socio Comercial"  %>
    
-    <%= f.association :client, :collection => Customer.all(:order => 'client_code') , :label_method =>  lambda { |customer | "#{customer.client_code}" } , :value_method => :client_id %>
+    <%= f.association :client, :collection => Customer.all(:order => 'client_code') , :label_method =>  lambda { |customer | "#{customer.client_code}" } , :value_method => :client_id , :prompt => "Selecciona un Cliente"%>
 
     <%= f.nested_fields_for :products_invoice do |p| %>
       <%= render :partial => 'products_invoice_fields' , :locals => {:f => p} %>
