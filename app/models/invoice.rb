@@ -8,4 +8,6 @@ class Invoice < ActiveRecord::Base
   validates :client_id,:folio, :member_id,
   :presence => true
 
+  scope :nuevas  , order('created_at desc')
+
 end

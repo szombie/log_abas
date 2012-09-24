@@ -1,12 +1,12 @@
-<h1>Listing invoices</h1>
+<h1>Listado de Fscturas</h1>
 
 <table>
   <tr>
     <th>Folio</th>
-    <th>Member</th>
-    <th>Client</th>
+    <th>Socio Comercial</th>
+    <th>Cliente</th>
     <th>Total</th>
-    <th>Status</th>
+    <th>Estado</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,8 +15,8 @@
 <% @invoices.each do |invoice| %>
   <tr>
     <td><%= invoice.folio %></td>
-    <td><%= invoice.member_id %></td>
-    <td><%= invoice.client_id %></td>
+    <td><%= invoice.member.name_member %></td>
+    <td><%= invoice.client.name_client %></td>
     <td><%= invoice.total %></td>
     <td><%= invoice.status %></td>
     <td><%= link_to 'Show', invoice_path(invoice) %></td>
