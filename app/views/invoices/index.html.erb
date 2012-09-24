@@ -8,8 +8,7 @@
     <th>Total</th>
     <th>Estado</th>
     <th></th>
-    <th></th>
-    <th></th>
+
   </tr>
 
 <% @invoices.each do |invoice| %>
@@ -19,9 +18,9 @@
     <td><%= invoice.client.name_client %></td>
     <td><%= invoice.total %></td>
     <td><%= invoice.status %></td>
-    <td><%= link_to 'Detalles', invoice_path(invoice), class: "btn btn-mini"  %></td>
-    <td><%= link_to 'Editar', edit_invoice_path(invoice) , class: "btn btn-primary btn-mini" %></td>
-    <td><%= link_to 'Eliminar', invoice , method: :delete, data: { confirm: '¿Estas seguro?' } , class: "btn btn-danger btn-mini" %></td>
+    <td><%= link_to 'Ver', invoice_path(invoice), class: "btn btn-mini"  %>
+    <%= link_to 'Editar', edit_invoice_path(invoice) , class: "btn btn-primary btn-mini" %>
+    <%= link_to 'Eliminar', invoice , method: :delete, data: { confirm: '¿Estas seguro?' } , class: "btn btn-danger btn-mini" %></td>
     
   </tr>
 <% end %>
@@ -29,4 +28,4 @@
 
 <br />
 
-<%= link_to 'Nueva Factura', new_invoice_path %>
+<%= link_to 'Nueva Factura', new_invoice_path , class: "btn" %>
