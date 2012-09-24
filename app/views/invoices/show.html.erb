@@ -23,30 +23,40 @@
       <th>Cliente</th>
       <td><%= @invoice.client.name_client %></td>
   </tr>
-
-  <% @invoice.products.each_with_index do |product, i| %>
-  <tr>
-    <th><%= product.product_name %></th>
-    <td><%= @subtotals[i] %><td>
-  </tr>
-    <%end%>
-  
-
-<tr>
-      <th>SubTotal</th>
-    <td><%= @invoice.total %></td>
-</tr>
-<tr>
-     <th>IVA</th>
-    <td><%= @invoice.iva %></td>
-</tr>
-<tr>
-     <th>Total</th>
-    <td><%= @invoice.totalfinal %></td>
-</tr>
-
   <tbody>
   </table>
 
-<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
-<%= link_to 'Back', invoices_path %>
+<table class="table table-bordered table-striped">
+  <thead>
+      <tr>
+        <th class = "cantidad">Cantidad</th>
+        <th>Nombre Producto</th>
+        <th>Subtotal</th>
+      </tr> 
+  </thead>
+  <% @invoice.products.each_with_index do |product, i| %>
+  <tr>
+    <th><%= @cantidades[i] %></th>
+    <th><%= product.product_name %></th>
+    <td>$<%= @subtotals[i] %><td>
+  </tr>
+    <%end%>
+  </table>
+<table class="table table-bordered table-striped">
+  <tr>
+      <th>SubTotal</th>
+    <td>$<%= @invoice.total %></td>
+</tr>
+<tr>
+     <th>IVA</th>
+    <td>$<%= @invoice.iva %></td>
+</tr>
+<tr>
+     <th>Total</th>
+    <td>$<%= @invoice.totalfinal %></td>
+</tr>
+</table>
+
+
+<%= link_to 'Editar', edit_invoice_path(@invoice), class: "btn" %> 
+<%= link_to 'Atras', invoices_path , class: "btn" %>
