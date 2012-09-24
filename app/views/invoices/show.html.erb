@@ -1,30 +1,51 @@
-<p id="notice"><%= notice %></p>
+<table class="table table-bordered table-striped">
+  <colgorup>
+    <col class="span1">
+    <col class="span7">
+  </colgroup>
+    <thead>
+      <tr>
+        <th>Datos</th>
+        <th>Descripción</th>
+      </tr> 
+    </thead>
 
-<p>
-  <b>Folio:</b>
-  <%= @invoice.folio %>
-</p>
+  <tbody>
+    <tr>
+      <th>Folio</th>
+      <td><%= @invoice.folio %></td>
+    </tr>
+  <tr>
+      <th>Socio Comercial</th>
+      <td><%= @invoice.member.name_member %></td>
+  </tr>
+  <tr>
+      <th>Cliente</th>
+      <td><%= @invoice.client.name_client %></td>
+  </tr>
+  <% @invoice.products.each do |product| %>
+  <tr>
+    <td><%= product.product_name %></td>
+<% end %>
+<% @invoice.products_invoice.each do |i| %>
+    <td><%= i.subtotal %></td>
+  </tr>
+<% end %>
+<tr>
+      <th>SubTotal</th>
+    <td><%= @invoice.total %></td>
+</tr>
+<tr>
+     <th>IVA</th>
+    <td><%= @invoice.iva %></td>
+</tr>
+<tr>
+     <th>Total</th>
+    <td><%= @invoice.totalfinal %></td>
+</tr>
 
-<p>
-  <b>Member:</b>
-  <%= @invoice.member_id %>
-</p>
-
-<p>
-  <b>Client:</b>
-  <%= @invoice.client_id %>
-</p>
-
-<p>
-  <b>Total:</b>
-  <%= @invoice.total %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @invoice.status %>
-</p>
-
+  <tbody>
+  </table>
 
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
 <%= link_to 'Back', invoices_path %>
