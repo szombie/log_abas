@@ -2,7 +2,9 @@
 
 <table class="table table-striped">
   <tr>
+    
     <th>Folio</th>
+    <th>Fecha</th>
     <th>Socio Comercial</th>
     <th>Cliente</th>
     <th>Total</th>
@@ -13,7 +15,8 @@
 
 <% @invoices.each do |invoice| %>
   <tr>
-    <td><%= invoice.folio %></td>
+     <td><%= invoice.folio %></td>
+    <td><%= invoice.fecha %></td>
     <td><%= invoice.member.name_member %></td>
     <td><%= invoice.client.name_client %></td>
     <td><%= invoice.total %></td>
