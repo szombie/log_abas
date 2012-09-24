@@ -207,6 +207,12 @@ es:
       customer:
         one: 'Numero de Cliente'
         many: 'Perfiles'
+      product:
+        one: 'Producto'
+        many: 'Productos'
+      invoice:
+        one: 'Factura'
+        many: 'Facturas'
       property:
         one: 'Propiedad'
         many: 'Propiedades'
@@ -237,7 +243,7 @@ es:
         phone: "Teléfono"
         email: "Email"
         zone: "Zona"
-      product:
+      product: 
         member: "Socio comercial"
         product_name: "Nombre del producto"
         key: "Clave comercial"
@@ -248,6 +254,16 @@ es:
         client: "Cliente"
         member: "Socio comercial"
         client_code: "codigo de cliente"
+      invoice:
+        folio: "Folio"
+        member: "Socio comercial"
+        client: "Cliente"
+        count: "Cantidad"
+      products_invoice:
+        count: "Cantidad"
+        product_id: "Producto"
+
+
       lease:
         num_int: 'Número interior'
         status_renta: 'En renta'
