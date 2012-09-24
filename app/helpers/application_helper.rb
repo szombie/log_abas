@@ -16,12 +16,8 @@ module ApplicationHelper
       render(association.to_s.singularize + "_fields", f: builder)
     end
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
-  end
-   def sortable(column, title = nil)  
-    title ||= column.titleize  
-    direction = (column == params[:sort] && params[:direction] == "asc") ? "desc" : "asc"  
-    link_to title, :sort => column, :direction => direction  
-  end  
+  end 
+
 
 
 end

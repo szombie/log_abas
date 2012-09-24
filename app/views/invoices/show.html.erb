@@ -23,14 +23,15 @@
       <th>Cliente</th>
       <td><%= @invoice.client.name_client %></td>
   </tr>
-  <% @invoice.products.each do |product| %>
+
+  <% @invoice.products.each_with_index do |product, i| %>
   <tr>
-    <td><%= product.product_name %></td>
-<% end %>
-<% @invoice.products_invoice.each do |i| %>
-    <td><%= i.subtotal %></td>
+    <th><%= product.product_name %></th>
+    <td><%= @subtotals[i] %><td>
   </tr>
-<% end %>
+    <%end%>
+  
+
 <tr>
       <th>SubTotal</th>
     <td><%= @invoice.total %></td>

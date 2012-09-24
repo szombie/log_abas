@@ -14,6 +14,7 @@ class InvoicesController < ApplicationController
   # GET /invoices/1.json
   def show
     @invoice = Invoice.find(params[:id])
+    @subtotals = producto_cantidad(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -80,4 +81,17 @@ class InvoicesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    def producto_cantidad invoice_id
+    a = Invoice.find(invoice_id)
+    c = a.products_invoice
+    d = []
+    c.each_with_index do |p , i|
+      d[i] = p.subtotal
+    end 
+    return d  
+  end
+
 end
