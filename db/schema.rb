@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20121004220957) do
+=======
+ActiveRecord::Schema.define(:version => 20121003092421) do
+>>>>>>> 14295667fe33c082f092a30859142b5bac54658d
 
   create_table "clients", :force => true do |t|
     t.string   "name_client"
@@ -85,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20121004220957) do
     t.datetime "updated_at", :null => false
     t.integer  "count"
     t.float    "subtotal"
+    t.float    "price"
   end
 
   create_table "roles", :force => true do |t|

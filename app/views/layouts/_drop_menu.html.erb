@@ -25,7 +25,11 @@
     <%= lateral_menu("Facturas", "#","drop4")%>
     <ul class="dropdown-menu">
      <li><%= drop_menu("Listado de Facturas", invoices_path) %></li>
-     <li><%= drop_menu("Agregar Factura", new_invoice_path) %></li>   
+     <li><%= factura_drop_menu("Agregar Factura Cremeria Americana", new_invoice_path,1) %></li> 
+     <li><%= factura_drop_menu("Agregar Factura Jugos Patagonia", new_invoice_path,2) %></li>
+     <li><%= factura_drop_menu("Agregar Factura DENES", new_invoice_path,3) %></li>
+     <li><%= factura_drop_menu("Agregar Factura DECS", new_invoice_path,4) %></li>
+     <li><%= factura_drop_menu("Agregar Factura Cuadritos", new_invoice_path,5) %></li>      
     </ul>
  </li>
   <li class="dropdown">
