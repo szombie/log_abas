@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Fecha:</b>
+  <%= @daily_report.fecha %>
+</p>
+
+<p>
+  <b>Invoice:</b>
+  <%= @daily_report.invoice_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_daily_report_path(@daily_report) %> |
+<%= link_to 'Back', daily_reports_path %>
