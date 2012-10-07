@@ -2,7 +2,7 @@
   <%= f.error_notification %>
  <fieldset>
   <div class="form-inputs invoice">
-    <%= f.input :fecha %>
+    <%= f.input :fecha , start_date: Date.today %>
      <%= f.input :folio , :input_html => { :class => "input-mini" } %>
     <%= f.association :member,:label_method => lambda { |member| "#{member.name_member} | #{member.comercial_key}" },
     :prompt => "Selecciona un Socio Comercial"  %>
