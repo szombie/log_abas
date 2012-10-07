@@ -1,0 +1,38 @@
+<h1>Listado de Facturas Diarias</h1>
+</br>
+
+<table class="table table-striped">
+  <thead> 
+   <tr>    
+    <th>Folio</th>
+    <th>Fecha</th>
+    <th>Socio Comercial</th>
+    <th>Cliente</th>
+    <th>Total $</th>
+    <th>Estado</th>
+  </tr>
+  </thead>
+<tbody>
+
+<% @members.each_with_index do |m,i| %>
+  <h2><%= m.name_member %></h2>
+  <% @invoices.each do |invoice| %>
+    <tr>
+      <% if m.id = invoice.member_id %>
+       <td><%= invoice.folio %></td>
+      <td><%= invoice.fecha %></td>
+      <td><%= invoice.member.name_member %></td>
+      <td><%= invoice.client.name_client %></td>
+      <td><%= invoice.total  %></td>
+      <td><%= invoice.status %></td>
+  </tr>
+      <% end %>
+  <% end %>
+  </tbody>
+</table>
+<div class="well">
+  <h6><%= m.name_member %></h6>
+  Total: $<%= @total_facturas[i] %>
+</div>
+<% end %>
+

@@ -1,6 +1,4 @@
 AbastosLogicos::Application.routes.draw do
-  resources :daily_reports
-
   devise_for :users 
   resources :users
   resources :products
@@ -8,7 +6,7 @@ AbastosLogicos::Application.routes.draw do
   resources :clients
   resources :members
   resources :invoices
-  match 'reportes' => "menu#reportes" 
+  match 'diarias' => "invoices#diarias" 
   root :to =>redirect("/users/sign_in")
   namespace :user  do
   root :to => "menu#index"

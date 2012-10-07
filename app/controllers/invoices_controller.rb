@@ -83,6 +83,12 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def diarias
+    @invoices = Invoice.diarias
+    @members = Member.all
+    @total_facturas = total_facturas(@members)
+  end
+
   private
 
   def producto_subtotal invoice_id
@@ -104,5 +110,18 @@ class InvoicesController < ApplicationController
     end 
     return d  
   end
+
+  def total_facturas member
+    d =[]
+    member.each_with_index do |m , i|
+    a = Invoice.miembro(m.id).diarias
+    c = 0 
+    a.each do |fac|
+      c = c + fac.total
+    end 
+    d[i] = c
+  end
+    return d
+  end  
 
 end

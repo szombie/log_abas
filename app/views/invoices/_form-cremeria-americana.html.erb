@@ -3,7 +3,7 @@
  <fieldset>
   <div class="form-inputs invoice">
      <%= f.input :folio , :input_html => { :class => "input-mini" } %>
-     <%= f.input :fecha %>
+     <%= f.input :fecha, default: Date.today %>
    
     <%= f.association :client, :collection => Customer.all(:order => 'client_code') , :label_method =>  lambda { |customer | "#{customer.client_code}" } , :value_method => :client_id , :prompt => "Selecciona un Cliente"%>
     <div class="hidden">
