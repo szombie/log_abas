@@ -36,6 +36,7 @@
       <tr>
         <th class = "cantidad">Cantidad</th>
         <th>Nombre Producto</th>
+        <th>Precio Unitario</th>
         <th>Subtotal</th>
       </tr> 
   </thead>
@@ -43,10 +44,11 @@
   <tr>
     <td><%= @cantidades[i] %></td>
     <td><%= product.product_name %></td>
-    <td>$<%= @subtotals[i] %><td>
+    <td>$<%= @precio_unitario[i] %></td>
+     <td>$<%= @subtotals[i] %></td>
   </tr>
     <%end%>
-  </table>
+  </table>  
 <table class="table table-bordered table-striped">
   <tr>
       <th>SubTotal</th>
@@ -63,6 +65,6 @@
 </table>
 
 <%= link_to 'Nueva Factura', new_invoice_path ,  class: "btn btn-primary" %>
-<li><%= factura_drop_menu("Agregar Factura Cuadritos", new_invoice_path,@invoice.member_id) %></li>
-<%= link_to 'Editar', edit_invoice_path(@invoice), class: "btn" %> 
+<li><%= factura_drop_menu("Agregar Factura", new_invoice_path,@invoice.member_id) %></li>
+<%= link_to 'Editar', edit_invoice_path(@invoice) %> 
 <%= link_to 'Atras', invoices_path , class: "btn" %>

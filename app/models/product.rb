@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :key, :peso, :precio, :product_name , :member_id	  
-  validates :description,:key, :precio, :product_name,
+  attr_accessible :description, :key, :peso, :product_name , :member_id, :presentacion  
+  validates :description,:key, :product_name, :presentacion,
   :presence => true
   belongs_to :member
   has_many :products_invoice

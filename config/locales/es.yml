@@ -213,8 +213,9 @@ es:
       invoice:
         one: 'Factura'
         many: 'Facturas'
-      user:
-        username: 'Nombre de usuario'
+      
+
+
       property:
         one: 'Propiedad'
         many: 'Propiedades'
@@ -251,7 +252,7 @@ es:
         key: "Clave comercial"
         description: "Descripción"
         precio: "precio"
-        peso: "Peso"
+        peso: "Equivalencia en kilos"
       customer:
         client: "Cliente"
         member: "Socio comercial"
@@ -264,6 +265,14 @@ es:
       products_invoice:
         count: "Cantidad"
         product_id: "Producto"
+      user:
+        username: 'Nombre de usuario'
+        password: 'Contraseña'
+        password_confirmation: 'Confirmación de contraseña'
+      products_invoice:
+        price: 'Precio'
+      devise:
+        username: 'Nombre de usuario'
 
 
       lease:
