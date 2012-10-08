@@ -21,7 +21,7 @@ module ApplicationHelper
 	    end
 	    link_to(name, '#', class: "add_fields #{clase} ", data: {id: id, fields: fields.gsub("\n", "")})
 	end 
-	def nueva_factura (member_id)
-		
+	def fecha
+		Date.today
 	end
 end
