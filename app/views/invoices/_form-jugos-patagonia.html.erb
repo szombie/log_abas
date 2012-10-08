@@ -1,13 +1,15 @@
+<h1>Jugos Patagonia</h1>
 <%= simple_form_for @invoice, :html => { :class => 'well form-horizontal' } do |f| %>
   <%= f.error_notification %>
  <fieldset>
   <div class="form-inputs invoice">
+    <%= f.input :folio , :input_html => { :class => "input-mini" } %>
     <%= f.input :fecha %>
-     <%= f.input :folio , :input_html => { :class => "input-mini" } %>
-    <%= f.association :member,:label_method => lambda { |member| "#{member.name_member} | #{member.comercial_key}" },
-    :prompt => "Selecciona un Socio Comercial"  %>
    
     <%= f.association :client, :collection => Customer.all(:order => 'client_code') , :label_method =>  lambda { |customer | "#{customer.client_code}" } , :value_method => :client_id , :prompt => "Selecciona un Cliente"%>
+     <div class="hidden">
+      <%= f.association :member, :label_method => :name_member, :value_method => :id, :selected => 6 %>
+    </div>
 
     <%= f.nested_fields_for :products_invoice do |p| %>
       <%= render :partial => 'products_invoice_fields' , :locals => {:f => p} %>
