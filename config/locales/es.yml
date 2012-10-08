@@ -214,20 +214,6 @@ es:
         one: 'Factura'
         many: 'Facturas'
       
-
-
-      property:
-        one: 'Propiedad'
-        many: 'Propiedades'
-      service:
-        one: 'Servicio'
-        many: 'Servicios'
-      type:
-        one: 'Tipo'
-        many: 'Tipos'
-      video:
-        one: 'Video'
-        many: 'Videos'
     attributes:
       member:
         name_member: 'Nombre'
@@ -263,51 +249,13 @@ es:
         client: "Cliente"
         count: "Cantidad"
       products_invoice:
-        count: "Cantidad"
-        product_id: "Producto"
+        count: 'Cantidad'
+        product_id: 'Producto'
+        price: 'Precio'
       user:
         username: 'Nombre de usuario'
         password: 'Contraseña'
         password_confirmation: 'Confirmación de contraseña'
       products_invoice:
-        price: 'Precio'
-      devise:
-        username: 'Nombre de usuario'
-
-
-      lease:
-        num_int: 'Número interior'
-        status_renta: 'En renta'
-        precio: 'Precio'
-        descripcion: 'Descripción'
-        profile: 'Perfil'
-      locality:
-        name: 'Nombre'
-      photo:
-        photo: 'Ruta del archivo'
-        photo_descripcion: 'Descripción de la foto'
-      picture:
-        picture: 'Ruta del archivo'
-        picture_descripcion: 'Descripción de la foto'
-      profile:
-        nombre: 'Nombre'
-        descripcion: 'Descripción'
-        recamaras: 'No. de Recámaras'
-        banos: 'No. de Baños'
-        sala: '¿Tiene sala?'
-        cocina: '¿Tiene cocina?'
-        cuarto: '¿Tiene cuarto?'
-        type: 'Tipo de inmueble'
-        property: 'Propiedad'
-      property:
-        locality: 'Localidad'
-        name: 'Nombre'
-        address: 'Dirección'
-        catastral_reference: 'Clave catastral'
-        google_maps: 'Ubicación geográfica'
-        description: 'Descripción'
-      service:
-        nombre: 'Nombre'
-      image:
-        image: 'Ruta del archivo'
-        image_description: 'Descripción de la imagen'
+       
+    
