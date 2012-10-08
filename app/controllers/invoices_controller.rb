@@ -91,7 +91,7 @@ class InvoicesController < ApplicationController
     respond_to do |format|
       format.html 
       format.pdf do
-        pdf = InvoicePdf.new(@invoices, @members,@total_facturas,Date.today)
+        pdf = InvoicePdf.new(@invoices, @members,@total_facturas,Date.today,Date.today)
         send_data pdf.render, filename: "ReporteDiario_#{Date.today}",
                             type: "application/pdf",
                             disposition: "inline"

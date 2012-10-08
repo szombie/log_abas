@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(:version => 20121008061616) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "daily_reports", :force => true do |t|
+    t.date     "fecha"
+    t.integer  "invoice_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "invoices", :force => true do |t|
     t.string   "folio"
     t.integer  "member_id"
