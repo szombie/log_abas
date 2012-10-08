@@ -16,7 +16,7 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     @subtotals = producto_subtotal(params[:id])
     @cantidades = producto_cantidad(params[:id])
-
+    @precio_unitario = precio_unitario(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @invoice }
@@ -151,6 +151,16 @@ end
     return d  
   end
 
+  def precio_unitario invoice_id
+    a = Invoice.find(invoice_id)
+    c = a.products_invoice
+    d = []
+    c.each_with_index do |p , i|
+      d[i] = p.price
+    end 
+    return d  
+  end
+
   def total_facturas member
     d =[]
     member.each_with_index do |m , i|
@@ -176,5 +186,6 @@ end
   end
     return d
   end
+
 
 end

@@ -5,9 +5,10 @@
     <%= f.association :member , :label_method => :name_member, :prompt => "Selecciona un Socio comercial"  %>
     <%= f.input :product_name %>
     <%= f.input :key %>
-    <%= f.input :description %>
-    <%= f.input :precio %>
+    <%= f.input :description %>   
     <%= f.input :peso %>
+
+    <%= f.input :presentacion, :collection => ['litros','kilos']  %>
 
   </div>
 

@@ -10,7 +10,7 @@ module ApplicationHelper
 	end
 
 	def factura_drop_menu(link,path,opt)
-	link_to  raw("#{link}"), {controller: "/invoices", action: 'new', opt: opt}, tabindex: '-1'
+	link_to  raw("#{link}"), {controller: "/invoices",class: "btn", action: 'new', opt: opt}, tabindex: '-1'
 	end
 
 	def link_to_add_fields(name, f, association,clase)
@@ -20,11 +20,8 @@ module ApplicationHelper
 	      render(association.to_s.singularize + "_fields", f: builder)
 	    end
 	    link_to(name, '#', class: "add_fields #{clase} ", data: {id: id, fields: fields.gsub("\n", "")})
-  	end
-
-  	def fecha()
-  		"#{Date.today}"
-  	end 
-
-  	
+	end 
+	def nueva_factura (member_id)
+		
+	end
 end
