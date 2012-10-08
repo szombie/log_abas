@@ -1,8 +1,8 @@
 	<fieldset>
 	<%= f.input :product_id, :collection => Product.all(:order => 'key'),:label_method =>  lambda { |product| "#{product.key} | #{product.product_name}" } ,:wrapper_html => { :class => 'producto' } , :prompt => "Selecciona un Producto"  %>
       <%= f.input :count , :wrapper_html => { :class => 'cantidad' } ,  :input_html => { :class => 'count' } %>
-      <%= f.label "Precio:" %> 
-       <%= f.input_field :price ,value: number_with_precision(f.object.price, precision: 2), :class => "input-mini" %>
+      <%= f.label "Precio:", class:'precio'  %> 
+       <%= f.input_field :price ,class:'price',value: number_with_precision(f.object.price, precision: 2), :class => "input-mini" %>
       <%= f.hidden_field :_destroy %>
      <div class="remove_producto" ><%= link_to "Quitar Producto" , "#", class: "remove_fields btn " %></div>
      </fieldset>
