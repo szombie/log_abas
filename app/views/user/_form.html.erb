@@ -2,6 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :username %>
     <%= f.input :email %>
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
@@ -9,6 +10,6 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit  %>
+    <%= f.button :submit, "Nuevo Usuario" %>
   </div>
 <% end %>

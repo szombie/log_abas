@@ -1,0 +1,7 @@
+	<fieldset>
+	<%= f.input :product_id, :collection => Product.all(:order => 'key'),:label_method =>  lambda { |product| "#{product.key} | #{product.product_name}" } ,:wrapper_html => { :class => 'producto' } , :prompt => "Selecciona un Producto"  %>
+      <%= f.input :count , :wrapper_html => { :class => 'cantidad_cremeria' } ,  :input_html => { :class => 'count' } %>
+       <%= f.input :price , :input_html => { :class => "input-mini" } %>
+      <%= f.hidden_field :_destroy %>
+     <div class="remove_producto" ><%= link_to "Quitar Producto" , "#", class: "remove_fields btn " %></div>
+     </fieldset>

@@ -12,7 +12,7 @@
     </div>
 
     <%= f.nested_fields_for :products_invoice do |p| %>
-      <%= render :partial => 'products_invoice_fields' , :locals => {:f => p} %>
+      <%= render :partial => 'products_2_invoice_fields' , :locals => {:f => p} %>
         <% end %>
 
      <%= link_to_add_fields "Agregar Producto", f, :products_invoice , "btn btn-primary" %>
