@@ -1,6 +1,8 @@
 <h1>Listado de Facturas Diarias</h1>
 </br>
-
+<h2><%= fecha %></h2>
+</br>
+<% @members.each_with_index do |m,i| %>
 <table class="table table-striped">
   <thead> 
    <tr>    
@@ -13,12 +15,10 @@
   </tr>
   </thead>
 <tbody>
-
-<% @members.each_with_index do |m,i| %>
   <h2><%= m.name_member %></h2>
   <% @invoices.each do |invoice| %>
     <tr>
-      <% if m.id = invoice.member_id %>
+      <% if m.id == invoice.member_id %>
        <td><%= invoice.folio %></td>
       <td><%= invoice.fecha %></td>
       <td><%= invoice.member.name_member %></td>
@@ -29,10 +29,18 @@
       <% end %>
   <% end %>
   </tbody>
-</table>
-<div class="well">
-  <h6><%= m.name_member %></h6>
-  Total: $<%= @total_facturas[i] %>
-</div>
+</table></br>
+
+
 <% end %>
+<div class="well">
+<% @members.each_with_index do |m,i| %>
+
+  <h6><%= m.name_member %></h6>
+  <p>Total: $<%= @total_facturas[i] %><p>
+<% end %>
+</div>
+<%= link_to 'Exportar a PDF', diarias_path(format: :pdf),class: "btn" %>
+
+
 

@@ -11,7 +11,8 @@ gem 'country_select'
 gem 'devise'
 gem 'cancan'
 gem 'rolify'
-gem 'awesome_nested_fields'	
+gem 'awesome_nested_fields'
+gem 'prawn'
 
 
 # Gems used only for assets and not required
