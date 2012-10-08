@@ -1,0 +1,40 @@
+</br>
+<% @members.each_with_index do |m,i| %>
+<table class="table table-striped">
+  <thead> 
+   <tr>    
+    <th>Folio</th>
+    <th>Fecha</th>
+    <th>Socio Comercial</th>
+    <th>Cliente</th>
+    <th>Total $</th>
+    <th>Estado</th>
+  </tr>
+  </thead>
+<tbody>
+  <h2><%= m.name_member %></h2>
+  <% @invoices.each do |invoice| %>
+    <tr>
+      <% if m.id == invoice.member_id %>
+       <td><%= invoice.folio %></td>
+      <td><%= invoice.fecha %></td>
+      <td><%= invoice.member.name_member %></td>
+      <td><%= invoice.client.name_client %></td>
+      <td><%= invoice.total  %></td>
+      <td><%= invoice.status %></td>
+  </tr>
+      <% end %>
+  <% end %>
+  </tbody>
+</table></br>
+
+
+<% end %>
+<div class="well">
+<% @members.each_with_index do |m,i| %>
+
+  <h6><%= m.name_member %></h6>
+  <p>Total: $<%= @total_facturas[i] %><p>
+<% end %>
+</div>
+<%= link_to 'Exportar a PDF', show_reporte_dinamico_path(format: :pdf),class: "btn" %>

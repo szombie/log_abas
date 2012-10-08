@@ -42,6 +42,7 @@ class InvoicesController < ApplicationController
   # POST /invoices
   # POST /invoices.json
   def create
+    
     @invoice = Invoice.new(params[:invoice])
 
     respond_to do |format|
@@ -90,13 +91,43 @@ class InvoicesController < ApplicationController
     respond_to do |format|
       format.html 
       format.pdf do
-        pdf = InvoicePdf.new(@invoices, @members,@total_facturas)
+        pdf = InvoicePdf.new(@invoices, @members,@total_facturas,Date.today)
         send_data pdf.render, filename: "ReporteDiario_#{Date.today}",
                             type: "application/pdf",
                             disposition: "inline"
       end
     end
   end
+
+  def reporte_dinamico
+    @invoices = Invoice.nuevas_inicio(params[:fecha_Inicial]).nuevas_fin(params[:fecha_Final])
+    session[:fecha_ini] = params[:fecha_Inicial]
+    session[:fecha_fin] = params[:fecha_Final]
+    respond_to do |format|
+    if @invoices.empty?
+     format.html
+   else
+    format.html { redirect_to action: "show_reporte_dinamico" }
+  end
+end
+end
+
+  def show_reporte_dinamico
+   @invoices = Invoice.nuevas_inicio(session[:fecha_ini]).nuevas_fin(session[:fecha_fin])
+   @members = Member.all
+   @total_facturas = dinamico_total_facturas(@members,session[:fecha_ini],session[:fecha_fin])
+   respond_to do |format|
+      format.html
+   format.pdf do
+        pdf = InvoicePdf.new(@invoices, @members,@total_facturas,session[:fecha_ini],session[:fecha_fin])
+        send_data pdf.render, filename: "Reporte_#{Date.today}",
+                            type: "application/pdf",
+                            disposition: "inline"
+      end
+    end
+
+  end
+
 
   private
 
@@ -132,5 +163,18 @@ class InvoicesController < ApplicationController
   end
     return d
   end  
+
+  def dinamico_total_facturas member, fecha_inicio, fecha_fin
+    d =[]
+    member.each_with_index do |m , i|
+    a = Invoice.miembro(m.id).nuevas_inicio(fecha_inicio).nuevas_fin(fecha_fin)
+    c = 0 
+    a.each do |fac|
+      c = c + fac.total
+    end 
+    d[i] = c
+  end
+    return d
+  end
 
 end

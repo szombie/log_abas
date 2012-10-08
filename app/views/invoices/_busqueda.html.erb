@@ -1,0 +1,7 @@
+<%= form_tag("/reporte_dinamico", :method => "get") do %>
+  <%= label_tag(:fecha_Inicial, "Fecha Inicial:") %>
+  <%= text_field_tag :fecha_Inicial,nil,:class => "date_picker" %></br>
+  <%= label_tag(:fecha_Final, "Fecha Final:") %>
+  <%= text_field_tag :fecha_Final ,nil,:class => "date_picker" %></br>
+  <%= submit_tag("Buscar") %>
+<% end %>

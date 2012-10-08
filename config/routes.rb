@@ -6,7 +6,9 @@ AbastosLogicos::Application.routes.draw do
   resources :clients
   resources :members
   resources :invoices
-  match 'diarias' => "invoices#diarias" 
+  match 'diarias' => "invoices#diarias"
+  match 'reporte_dinamico' => 'invoices#reporte_dinamico'
+  match 'show_reporte_dinamico' => 'invoices#show_reporte_dinamico' 
   root :to =>redirect("/users/sign_in")
   namespace :user  do
   root :to => "menu#index"
