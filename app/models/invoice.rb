@@ -12,4 +12,6 @@ class Invoice < ActiveRecord::Base
   scope :nuevas  , order('created_at desc')
   scope :diarias , where(fecha: Date.today.to_s)
   scope :miembro, lambda { |id| where(member_id:id) }
+  scope :nuevas_inicio, lambda { |f_ini| where('fecha >= ?',f_ini )}
+  scope :nuevas_fin, lambda { |f_fin| where('fecha <= ?',f_fin )}
 end

@@ -15,6 +15,7 @@
 //= require chosen-jquery
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
+//= require bootstrap-datepicker
 //= require_tree .
 //= require bootstrap
 $(document).ready(function() {
@@ -22,4 +23,5 @@ $(document).ready(function() {
   "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
   "sPaginationType": "bootstrap"
 });
+ $("input.date_picker").datepicker({format: 'yyyy-mm-dd', weekStart: 1});
 } );

@@ -25,4 +25,6 @@ module ApplicationHelper
   	def fecha()
   		"#{Date.today}"
   	end 
+
+  	
 end
