@@ -3,6 +3,7 @@
 <h2><%= fecha %></h2>
 </br>
 <% @members.each_with_index do |m,i| %>
+<% unless m.invoices.diarias.empty? %>
 <table class="table table-striped">
   <thead> 
    <tr>    
@@ -16,6 +17,7 @@
   </thead>
 <tbody>
   <h2><%= m.name_member %></h2>
+  <% end %>
   <% @invoices.each do |invoice| %>
     <tr>
       <% if m.id == invoice.member_id %>

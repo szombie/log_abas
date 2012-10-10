@@ -1,5 +1,5 @@
 class Invoice < ActiveRecord::Base
-  attr_accessible :iva, :totalfinal, :folio, :status, :total ,:client_id, :member_id, :fecha ,  :products_invoice_attributes   
+  attr_accessible :iva,:client_code,  :totalfinal, :folio, :status, :total ,:client_id, :member_id, :fecha , :products_invoice_attributes   
   belongs_to :member
   belongs_to :client
   has_many :products_invoice
@@ -12,4 +12,13 @@ class Invoice < ActiveRecord::Base
   scope :miembro, lambda { |id| where(member_id:id) }
   scope :nuevas_inicio, lambda { |f_ini| where('fecha >= ?',f_ini )}
   scope :nuevas_fin, lambda { |f_fin| where('fecha <= ?',f_fin )}
+  scope :miembros , select("member_id").uniq
+
+  def client_code=(code)
+   self.client_id = Customer.find_by_client_code(code).client_id 
+  end
+  def client_code
+  end
+
+
 end

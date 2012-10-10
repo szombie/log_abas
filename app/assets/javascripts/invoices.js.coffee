@@ -13,11 +13,3 @@ jQuery ->
     $(this).before($(this).data('fields').replace(regexp, time))
     $('.controls select').chosen()
     event.preventDefault()
-
-  $('#invoice_member_id').chosen()
-  $('#invoice_client_id').chosen()
-  $('#invoice_product_ids').chosen()
-  $('.controls select').chosen()
-  
-
-  

@@ -77,7 +77,6 @@ ActiveRecord::Schema.define(:version => 20121008111634) do
     t.datetime "updated_at",   :null => false
     t.integer  "member_id"
     t.string   "presentacion"
-    t.string   "string"
   end
 
   create_table "products_invoices", :force => true do |t|

@@ -115,6 +115,8 @@ end
   def show_reporte_dinamico
    @invoices = Invoice.nuevas_inicio(session[:fecha_ini]).nuevas_fin(session[:fecha_fin])
    @members = Member.all
+   @fecha_ini = session[:fecha_ini]
+   @fecha_fin = session[:fecha_fin]
    @total_facturas = dinamico_total_facturas(@members,session[:fecha_ini],session[:fecha_fin])
    respond_to do |format|
       format.html
