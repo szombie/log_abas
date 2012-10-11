@@ -4,9 +4,8 @@
 <%= f.error_notification %>
  <fieldset>
   <div class="form-inputs invoice">
-    <%= f.association :client, :collection => Customer.all(:order => 'client_code') , :label_method =>  lambda { |customer | "#{customer.client_code}" } , :value_method => :client_id , :prompt => "Selecciona un Cliente"%>
+    <%= f.input :client_code, :as => :string, :input_html => { type: "text", data: { provide:"typeahead", items: "8", source: autocomplete_clientes(params[:opt])} } %>
      <%= f.input :folio , :input_html => { :class => "input-mini" } %>
-     <%= f.input :fecha, default: Date.today %>
    
     
     <div class="hidden">

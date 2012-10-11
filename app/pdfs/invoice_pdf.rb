@@ -1,5 +1,5 @@
 class InvoicePdf < Prawn::Document
-  def initialize(invoices,members,total_facturas,fecha_ini = null,fecha_fin = null)
+  def initialize(invoices,members,total_facturas,fecha_ini,fecha_fin)
     super(top_margin: 70)
     @invoices = invoices
     @members = members
@@ -8,12 +8,10 @@ class InvoicePdf < Prawn::Document
     @fecha_fin = fecha_fin
     logo
     fecha_reporte
-    @members.each_with_index do |m,i|
-      move_down 20
-      text "#{m.name_member}", size: 20, style: :bold
-      line_items(m.id)
-      move_down 10
-      text "#{m.name_member} : $#{@total_facturas[i]}", size: 15 , style: :bold 
+    if @fecha_ini == @fecha_fin
+     reporte_diario(@members,@total_facturas)
+   else
+     reporte_dinamico(@members,@total_facturas,@fecha_ini,@fecha_fin)
     end
   end
 
@@ -39,5 +37,29 @@ class InvoicePdf < Prawn::Document
   logopath =  "#{Rails.root}/app/assets/images/abastos.png"
   image logopath ,  at: [450, 700]
 end
+  
+  def reporte_diario members , total_facturas
+  members.each_with_index do |m,i|
+    unless m.invoices.diarias.empty?
+        move_down 20
+        text "#{m.name_member}", size: 20, style: :bold
+        line_items(m.id)
+        move_down 10
+        text "#{m.name_member} : $#{total_facturas[i]}", size: 15 , style: :bold 
+      end
+    end
+  end
+
+  def reporte_dinamico members , total_facturas,fecha_inicio,fecha_fin
+  members.each_with_index do |m,i|
+    unless m.invoices.nuevas_inicio(fecha_inicio).nuevas_fin(fecha_fin).empty?
+        move_down 20
+        text "#{m.name_member}", size: 20, style: :bold
+        line_items(m.id)
+        move_down 10
+        text "#{m.name_member} : $#{total_facturas[i]}", size: 15 , style: :bold 
+      end
+    end
+  end
 
 end

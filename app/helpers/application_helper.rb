@@ -24,4 +24,17 @@ module ApplicationHelper
 	def fecha
 		Date.today
 	end
+
+	def autocomplete_clientes(id_member) 
+		Customer.find(:all,:conditions => {member_id: id_member },select: "client_code").map(&:client_code).to_json
+	end
+
+	def autocomplete_productos(id_member)
+		h = [] 
+		Product.find(:all,:conditions => {member_id: id_member }, select:"product_name,key").each { |p| h.push("#{p.product_name}")}
+		Product.find(:all,:conditions => {member_id: id_member }, select:"key").each { |p| h.push("#{p.key}")}
+	
+		return h 
+	end
+
 end
