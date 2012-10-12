@@ -25,10 +25,15 @@ class ProductsInvoice < ActiveRecord::Base
     iva = total * 0.0
     totalfinal = iva + total
     fac = Invoice.find(self.invoice_id)
-    fac.update_attributes(total: total , iva:  iva , totalfinal: totalfinal , fecha: Date.today )
+    if fac.fecha.nil?
+    fac.update_attributes(total: total , iva:  iva , totalfinal: totalfinal, fecha: Date.today  )
+    else
+    fac.update_attributes(total: total , iva:  iva , totalfinal: totalfinal )
+    end  
   end
 
   def product
+    p = Product.find(self.product_id).key || Product.find(self.product_id).product_name unless self.product_id.nil?
   end
 
   def product=(code)

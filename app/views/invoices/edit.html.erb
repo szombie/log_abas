@@ -1,6 +1,6 @@
 <h1>Editando factura</h1>
 
-<%= render 'form' %>
+<%= render 'form-cremeria-americana' if @invoice.member_id == 1 %>
 
 <%= link_to 'Detalles', invoice_path(@invoice), class: "btn" %> |
 <%= link_to 'Regresar', invoices_path, class: "btn" %>

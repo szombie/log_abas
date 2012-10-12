@@ -17,7 +17,9 @@ class Invoice < ActiveRecord::Base
   def client_code=(code)
    self.client_id = Customer.find_by_client_code(code).client_id 
   end
+  
   def client_code
+  client = Customer.find_by_client_id(self.client_id).client_code unless self.client_id.nil?
   end
 
 
