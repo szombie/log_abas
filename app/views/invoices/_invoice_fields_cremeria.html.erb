@@ -1,0 +1,7 @@
+<fieldset class = "cremeria">
+	<%= f.input_field :product, :as => :string,class: "producto_cremeria", type: "text", data: { provide:"typeahead", items: "8", source: autocomplete_productos(params[:opt]) }%>
+      <%= f.input_field :count, class: "cantidad_cremeria" %> 
+       <%= f.input_field :price ,class: "precio_cremeria" , value: number_with_precision(f.object.price, precision: 2)%>
+      <%= f.hidden_field :_destroy %>
+     <div class="remove_producto" ><%= link_to "Quitar Producto" , "#", class: "remove_fields" %></div>
+     </fieldset>

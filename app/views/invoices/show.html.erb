@@ -44,23 +44,23 @@
   <tr>
     <td><%= @cantidades[i] %></td>
     <td><%= product.product_name %></td>
-    <td>$<%= @precio_unitario[i] %></td>
-     <td>$<%= @subtotals[i] %></td>
+    <td><%= number_to_currency(@precio_unitario[i], :locale => :mx) %></td>
+     <td><%= number_to_currency(@subtotals[i] ,:locale => :mx) %></td>
   </tr>
     <%end%>
   </table>  
 <table class="table table-bordered table-striped">
   <tr>
       <th>SubTotal</th>
-    <td>$<%= @invoice.total %></td>
+    <td><%= number_to_currency(@invoice.total, :locale => :mx) %></td>
 </tr>
 <tr>
      <th>IVA</th>
-    <td>$<%= @invoice.iva %></td>
+    <td><%= number_to_currency(@invoice.iva, :locale => :mx) %></td>
 </tr>
 <tr>
      <th>Total</th>
-    <td>$<%= @invoice.totalfinal %></td>
+    <td><%= number_to_currency(@invoice.totalfinal, :locale => :mx) %></td>
 </tr>
 </table>
 

@@ -25,6 +25,10 @@ module ApplicationHelper
 		Date.today
 	end
 
+	def fecha_orden
+		Date.today.strftime("%d-%m-%Y")
+	end
+
 	def autocomplete_clientes(id_member) 
 		Customer.find(:all,:conditions => {member_id: id_member },select: "client_code").map(&:client_code).to_json
 	end
@@ -36,5 +40,9 @@ module ApplicationHelper
 	
 		return h 
 	end
+
+	def convierte_fecha(fecha)
+		fecha.to_date
+	end	
 
 end

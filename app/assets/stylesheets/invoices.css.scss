@@ -2,10 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .remove_fields{
 
-	margin-left: 150px;
-	margin-bottom: 25px;
+	margin-right: 55px;
+	
 }
 .count{
 	width: 30px;
@@ -21,7 +22,7 @@ overflow: hidden;
 
 
 .remove_producto{
-	margin-bottom: 15px;
+	float: right;
 }
 .hidden{
 	display:none;
@@ -32,7 +33,39 @@ overflow: hidden;
 overflow: hidden;
 }
 .producto_cremeria{
+	width: 212px;
 }
+.client_code_cremeria{
+	float: left;
+}
+.folio_cremeria{
+	float: left;
+}
+.header_form
+{
+height: 62px;
+width: 791px;
+margin-top: -7px;
+}
+.cantidad_cremeria{
+	width: 164px;
+	margin-left: 35px;
+	margin-top: 0px;
+}
+.precio_cremeria{
+	width: 164px;
+	margin-left: 35px;
+	margin-top: 0px;
+}
+.navlistform li{
+	display: inline;
+list-style-type: none;
+padding-right: 177px;
+}
+.cremeria{
+margin-bottom: 10px;
+}
+<<<<<<< HEAD
 .logo{
 	margin-top: -80px;
 	margin-left: 0px;
@@ -40,3 +73,9 @@ overflow: hidden;
 .titulo{
 	margin-left: 120px;
 }
+=======
+.fecha{
+	margin-top: -43px;
+	float: right;
+}
+>>>>>>> 5e3b5c9f7ee143ccf096309626ce01d022fc6288

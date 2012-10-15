@@ -1,8 +1,14 @@
 	<fieldset>
+<<<<<<< HEAD
 	<%= f.input :product, :as => :string, :input_html => { type: "text", data: { provide:"typeahead", items: "8", source: autocomplete_productos(params[:opt])} }%>
       <%= f.input :count , :wrapper_html => { :class => 'cantidad_cremeria' } ,  :input_html => { :class => 'count' } %>
        <%= f.label "Precio ", class:'precio' %> 
        <%= f.input_field :price ,value: number_with_precision(f.object.price, precision: 2), :class => "input-mini" %>
+=======
+	<%= f.input_field :product, :as => :string,class:"producto_cremeria", type: "text", data: { provide:"typeahead", items: "8", source: autocomplete_productos(params[:opt]) }%>
+      <%= f.input_field :count, class:"cantidad_cremeria" %> 
+       <%= f.input_field :price ,class:"precio_cremeria" , value: number_with_precision(f.object.price, precision: 2)%>
+>>>>>>> 5e3b5c9f7ee143ccf096309626ce01d022fc6288
       <%= f.hidden_field :_destroy %>
-     <div class="remove_producto" ><%= link_to "Quitar Producto" , "#", class: "remove_fields btn " %></div>
+     <div class="remove_producto" ><%= link_to "Quitar Producto" , "#", class: "remove_fields" %></div>
      </fieldset>

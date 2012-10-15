@@ -49,6 +49,30 @@
   </tr>
   <tbody>
   </table>
+<table class="table table-bordered table-striped">
+<colgorup>
+    <col class="span1">
+    <col class="span7">
+  </colgroup>
+    <thead>
+      <tr>
+        <th>Socio Comercial</th>
+        <th>Clave Comercial</th>
+      </tr> 
+    </thead>
+
+  <tbody>
+    <tr>
+      <% @client.members.each do |client| %>
+      <th><%= client.name_member %></th>
+    <% end %>
+      <% @client.customers.each do |client| %>
+      <th><%= client.client_code %></th>
+    <% end %>
+  </tr>
+  <tbody>
+  </table>
+
 
 <%= link_to 'Editar', edit_client_path(@client) , class: "btn" %> 
 <%= link_to 'Regresar', clients_path , class: "btn"%>
