@@ -1,6 +1,7 @@
-<div class="titulo"><h1>Cremeria Americana</h1></div>
+<div class="titulo"><h1>Cremeria Americana</h1>
+  <h1 class= "fecha"><%= fecha_orden %></h1></div>
 <div class="logo"><%= image_tag("cremeria.png") %></div>
-<h1>Cremeria Americana</h1><h1 class= "fecha"><%= fecha_orden %></h1>
+<h1></h1>
 <%= simple_form_for @invoice, :html => { :class => 'well form-horizontal' } do |f| %>
 <%= f.error_notification %>
  <fieldset>

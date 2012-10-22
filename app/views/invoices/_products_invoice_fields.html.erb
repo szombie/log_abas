@@ -7,3 +7,14 @@
      <div class="remove_producto" ><%= link_to "Quitar Producto" , "#", class: "remove_fields btn" %></div>
 </fieldset>
 <% end %>
+
+<% if params[:opt] == '2'%>
+<fieldset class = "cremeria">
+  <%= f.input_field :count, class: "producto_cremeria" %> 
+	<%= f.input_field :product, :as => :string,class: "cantidad_cremeria", type: "text", data: { provide:"typeahead", items: "8", source: autocomplete_productos(params[:opt]) }%>
+      
+       <%= f.input_field :price ,class: "precio_cremeria" , value: number_with_precision(f.object.price, precision: 2)%>
+      <%= f.hidden_field :_destroy %>
+     <div class="remove_producto" ><%= link_to "Quitar Producto" , "#", class: "remove_fields btn" %></div>
+</fieldset>
+<% end %>

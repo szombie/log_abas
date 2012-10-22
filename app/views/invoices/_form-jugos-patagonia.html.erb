@@ -4,16 +4,23 @@
   <%= f.error_notification %>
  <fieldset>
   <div class="form-inputs invoice">
-    <%= f.input :folio , :input_html => { :class => "input-mini" } %>
-    <%= f.input :fecha, default: Date.today %>
-   
-    <%= f.association :client, :collection => Customer.all(:order => 'client_code') , :label_method =>  lambda { |customer | "#{customer.client_code}" } , :value_method => :client_id , :prompt => "Selecciona un Cliente"%>
-     <div class="hidden">
+   <div class="client_code_cremeria"> 
+    <%= f.label "Cliente" %>
+    <%= f.input_field :client_code, :as => :string, type: "text", data: { provide:"typeahead", items: "8", source: autocomplete_clientes(params[:opt] || @invoice.member_id)} %></div>
+     <div class="folio_cremeria"><%= f.input :folio , :input_html => { :class => "input-mini" } %></div></br>
+    <div class="hidden">
       <%= f.association :member, :label_method => :name_member, :value_method => :id, :selected => 6 %>
     </div>
-
+    <header class= "header_form">
+    <ul class = "navlistform">
+      <li>Unidades</li>
+      <li>Artículo</li>
+      <li>Precio</li>
+    </ul>
+  </header>
+  <% params[:opt]="2" %>
     <%= f.nested_fields_for :products_invoice do |p| %>
-      <%= render :partial => 'products_invoice_fields' , :locals => {:f => p} %>
+      <%= render :partial => 'products_invoice_fields' , :locals => {:f => p  } %>
         <% end %>
 
      <%= link_to_add_fields "Agregar Producto", f, :products_invoice , "btn btn-primary" %>
