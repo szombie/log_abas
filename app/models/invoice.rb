@@ -5,7 +5,7 @@ class Invoice < ActiveRecord::Base
   has_many :products_invoice
   has_many :products , through: :products_invoice , dependent: :destroy
   accepts_nested_attributes_for :products_invoice , allow_destroy: true
-  validates_presence_of :client_id,:folio, :member_id
+  validates_presence_of :client_code,:folio, :member_id
 
   scope :nuevas  , order('created_at desc')
   scope :diarias , where(fecha: Date.today.to_s)

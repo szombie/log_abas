@@ -21,7 +21,7 @@
     <td><%= invoice.fecha %></td>
     <td><%= invoice.member.name_member %></td>
     <td><%= invoice.client.name_client %></td>
-    <td><%= invoice.total %></td>
+    <td><%= number_to_currency(invoice.total,:locale => :mx) %></td>
     <td><%= invoice.status %></td>
     <td><%= link_to 'Ver', invoice_path(invoice), class: "btn btn-mini"  %>
     <%= link_to 'Editar', edit_invoice_path(invoice) , class: "btn btn-primary btn-mini" %>
