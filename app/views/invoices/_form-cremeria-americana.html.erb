@@ -1,12 +1,19 @@
-<h1>Cremeria Americana</h1><h1 class= "fecha"><%= fecha_orden %></h1>
+
+<div class="titulo"><h1>Cremeria Americana</h1>
+  <h1 class= "fecha"><%= fecha_orden %></h1></div>
+<div class="logo"><%= image_tag("cremeria.png") %></div>
+
 <%= simple_form_for @invoice, :html => { :class => 'well form-horizontal' } do |f| %>
 <%= f.error_notification %>
  <fieldset>
   <div class="form-inputs invoice">
-   <div class="client_code_cremeria"> 
-    <%= f.label "Cliente" %>
-    <%= f.input_field :client_code, :as => :string, type: "text", data: { provide:"typeahead", items: "8", source: autocomplete_clientes(params[:opt] || @invoice.member_id)} %></div>
-     <div class="folio_cremeria"><%= f.input :folio , :input_html => { :class => "input-mini" } %></div></br>
+    <div class="cliente-folio">
+    <fieldset class="client_code_cremeria">
+
+    <%= f.label "Cliente &nbsp;" %>
+    <%= f.input_field :client_code, :as => :string, type: "text", data: { provide:"typeahead", items: "8", source: autocomplete_clientes(params[:opt] || @invoice.member_id)}, class: "cliente" %></fieldset>
+     <div class="folio_cremeria"><%= f.input :folio , :input_html => { :class => "input-mini" } %></div>
+   </div></br>
     <div class="hidden">
     	<%= f.association :member, :label_method => :name_member, :value_method => :id, :selected => 1 %>
     </div>
@@ -22,10 +29,17 @@
       <%= render :partial => 'products_invoice_fields' , :locals => {:f => p  } %>
         <% end %>
 
-     <%= link_to_add_fields "Agregar Producto", f, :products_invoice , "btn btn-primary" %>
+      <%= link_to_add_fields "Agregar Producto", f, :products_invoice , "btn" %>
+
  </fieldset>
 
+  
   <div class="form-actions">
-    <%= f.button :submit %>
+     
+    <div class="boton_agregar_factura">
+      <%= link_to 'Atras', invoices_path , class: "btn" %>
+    <%= f.button :submit , class: "btn btn-primary"%>
   </div>
+</div>
+</div>
 <% end %>

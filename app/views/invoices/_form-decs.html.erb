@@ -1,27 +1,43 @@
-<h1>DECS</h1>
+<div class="titulo"><h1>DECS</h1>
+<h1 class= "fecha"><%= fecha_orden %></h1></div>
+<div class="logo"><%= image_tag("douwe.png") %></div>
+
 <%= simple_form_for @invoice, :html => { :class => 'well form-horizontal' } do |f| %>
   <%= f.error_notification %>
  <fieldset>
   <div class="form-inputs invoice">
-    
-     <%= f.association :client, :collection => Customer.all(:order => 'client_code') , :label_method =>  lambda { |customer | "#{customer.client_code}" } , :value_method => :client_id , :prompt => "Selecciona un Cliente"%>
-     <%= f.input :folio , :input_html => { :class => "input-mini" } %>
-    <%= f.input :fecha, default: Date.today %>
-     
+    <div class="cliente-folio">
+    <fieldset class="client_code_cremeria">
+
+    <%= f.label "Cliente &nbsp;" %>
+    <%= f.input_field :client_code, :as => :string, type: "text", data: { provide:"typeahead", items: "8", source: autocomplete_clientes(params[:opt] || @invoice.member_id)}, class: "cliente" %></fieldset>
+     <div class="folio_cremeria"><%= f.input :folio , :input_html => { :class => "input-mini" } %></div>
+   </div></br>
     <div class="hidden">
       <%= f.association :member, :label_method => :name_member, :value_method => :id, :selected => 4 %>
     </div>
-   
-   
-
+    <header class= "header_form_decs">
+    <ul class = "navlistform_decs">
+      <li>Cantidad</li>
+      <li>Concepto/Descripcion</li>
+      <li>ValorUnitario</li>
+    </ul>
+  </header>
+  <% params[:opt]="4" %>
     <%= f.nested_fields_for :products_invoice do |p| %>
-      <%= render :partial => 'products_invoice_fields' , :locals => {:f => p} %>
+      <%= render :partial => 'products_invoice_fields' , :locals => {:f => p  } %>
         <% end %>
 
-     <%= link_to_add_fields "Agregar Producto", f, :products_invoice , "btn btn-primary" %>
+     <%= link_to_add_fields "Agregar Producto", f, :products_invoice , "btn" %>
  </fieldset>
 
+  
   <div class="form-actions">
-    <%= f.button :submit %>
+     
+    <div class="boton_agregar_factura">
+      <%= link_to 'Atras', invoices_path , class: "btn" %>
+    <%= f.button :submit , class: "btn btn-primary"%>
   </div>
+</div>
+</div>
 <% end %>

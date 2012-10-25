@@ -20,6 +20,10 @@ overflow: hidden;
 	margin-left: 155px;
 }
 
+.cliente{
+	width: 341px;
+}
+
 
 .remove_producto{
 	float: right;
@@ -32,11 +36,19 @@ overflow: hidden;
 	margin-left: 350px;
 overflow: hidden;
 }
+
 .producto_cremeria{
 	width: 212px;
+
 }
+.cliente-folio{
+	margin-left: -88px;
+}	
+
 .client_code_cremeria{
 	float: left;
+	width: 513px;
+
 }
 .folio_cremeria{
 	float: left;
@@ -47,6 +59,14 @@ height: 62px;
 width: 791px;
 margin-top: -7px;
 }
+
+.header_form_decs
+{
+height: 62px;
+width: 900px;
+margin-top: -7px;
+}
+
 .cantidad_cremeria{
 	width: 164px;
 	margin-left: 35px;
@@ -57,15 +77,41 @@ margin-top: -7px;
 	margin-left: 35px;
 	margin-top: 0px;
 }
-.navlistform li{
+.navlistform li{	
 	display: inline;
 list-style-type: none;
-padding-right: 177px;
+padding-right: 200px;
+}
+.navlistform_decs li{	
+	display: inline;
+list-style-type: none;
+padding-right: 191px;
 }
 .cremeria{
 margin-bottom: 10px;
+}
+.logo{
+	margin-top: -80px;
+	margin-left: 0px;
+}
+.titulo{
+	margin-left: 120px;
 }
 .fecha{
 	margin-top: -43px;
 	float: right;
 }
+
+
+.title{
+	margin-top: 80px;
+}
+.boton-atras{
+	margin-left: 400px;
+}
+.boton_agregar_factura{
+	margin-top: 33px;
+	margin-left: 493px;
+}
+
+
