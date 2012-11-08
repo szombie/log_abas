@@ -30,7 +30,10 @@ module ApplicationHelper
 	end
 
 	def autocomplete_clientes(id_member) 
-		Customer.find(:all,:conditions => {member_id: id_member },select: "client_code").map(&:client_code).to_json
+		h = []
+		Customer.find(:all,:conditions => {member_id: id_member },select: "client_code").each { |c| h.push("#{c.client_code}")}
+		Member.find(id_member).clients.each { |c| h.push("#{c.name_client}")}
+		return h
 	end
 
 	def autocomplete_productos(id_member)

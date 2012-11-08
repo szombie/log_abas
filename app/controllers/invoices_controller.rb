@@ -117,7 +117,7 @@ end
    @members = Member.all
    @fecha_ini = session[:fecha_ini]
    @fecha_fin = session[:fecha_fin]
-   @total_facturas = dinamico_total_facturas(@members,session[:fecha_ini],session[:fecha_fin])
+   @total_facturas = dinamico_total_facturas(@members,@fecha_ini,@fecha_fin)
    respond_to do |format|
       format.html
    format.pdf do

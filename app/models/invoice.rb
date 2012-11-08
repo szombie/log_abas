@@ -8,14 +8,19 @@ class Invoice < ActiveRecord::Base
   validates_presence_of :client_code,:folio, :member_id
 
   scope :nuevas  , order('created_at desc')
-  scope :diarias , where(fecha: Date.today.to_s)
+  scope :diarias , where(fecha: Date.today.strftime("%Y-%m-%d"))
   scope :miembro, lambda { |id| where(member_id:id) }
-  scope :nuevas_inicio, lambda { |f_ini| where('fecha >= ?',f_ini )}
-  scope :nuevas_fin, lambda { |f_fin| where('fecha <= ?',f_fin )}
+  scope :nuevas_inicio, lambda { |f_ini| where('fecha >= ?',f_ini)}
+  scope :nuevas_fin, lambda { |f_fin| where('fecha <= ?',f_fin)}
   scope :miembros , select("member_id").uniq
 
   def client_code=(code)
-   self.client_id = Customer.find_by_client_code(code).client_id 
+   u = Customer.find_by_client_code(code) || Client.find_by_name_client(code)
+    if u.class == Customer
+    self.client_id = u.client_id
+    else
+    self.client_id = u.id
+    end
   end
   
   def client_code

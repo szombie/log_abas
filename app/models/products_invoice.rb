@@ -26,7 +26,7 @@ class ProductsInvoice < ActiveRecord::Base
     totalfinal = iva + total
     fac = Invoice.find(self.invoice_id)
     if fac.fecha.nil?
-    fac.update_attributes(total: total , iva:  iva , totalfinal: totalfinal, fecha: Date.today  )
+    fac.update_attributes(total: total , iva:  iva , totalfinal: totalfinal, fecha: Date.today.to_s  )
     else
     fac.update_attributes(total: total , iva:  iva , totalfinal: totalfinal )
     end  

@@ -4,6 +4,7 @@
   <tr >
     <th>Nombre</th>
     <th>Clave comercial</th>
+    <th>Socio Comercial</th>
     <th>Descripción</th>
     <th></th>
     
@@ -13,6 +14,7 @@
   <tr>
     <td><%= product.product_name %></td>
     <td><%= product.key %></td>
+    <td><%= product.member.name_member %></td>
     <td><%= product.description %></td>
     <td><%= link_to 'Ver', product, class: "btn btn-mini" %>
     <%= link_to 'Editar', edit_product_path(product),class: "btn btn-mini btn-primary" %>
